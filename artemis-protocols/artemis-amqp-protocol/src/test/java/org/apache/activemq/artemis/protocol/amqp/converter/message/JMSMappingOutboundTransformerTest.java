@@ -579,6 +579,7 @@ public class JMSMappingOutboundTransformerTest {
       try (ByteArrayOutputStream baos = new ByteArrayOutputStream(); ObjectOutputStream oos = new ObjectOutputStream(baos);) {
 
          oos.writeObject(payload);
+         oos.flush();
          byte[] data = baos.toByteArray();
          result.setSerializedForm(new Binary(data));
       } catch (Exception ex) {
